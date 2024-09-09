@@ -1,12 +1,12 @@
 # Simulator for Utility-Aware Energy Management in Battery-Free Devices
 
-This repository contains the codebase for the paper **"UtiliGEM: Energy Management Guided by Learned Application Utility"**. The project aims to provide a simulation environment for energy management guided by application utility learning.
+This repository contains the codebase for the paper **"UtiliGEM: Energy Management Guided by Learned Application Utility"**. The repository code provides a simulation environment for energy management guided by application utility learning.
 
 ## Repository Structure
 
 The repository is organized into two main parts:
 
-### 1. **em_sim** 
+### 1. **Simulator: em_sim** 
 
 This directory contains the core simulator code and device artifacts for conducting various experiments.
 
