@@ -1,0 +1,58 @@
+Ski dataset
+The dataset consists of images from 6 different locations/cameras, with 10 mins interval.
+Locations/cameras names
+1. 'jervskogen_1', - Images: 57215, timeline: 2021-12-10 19:10:04 to 2023-01-23 16:10:03 
+2. 'jervskogen_2', - Images: 57215, timeline: 2021-12-10 19:10:04 to 2023-01-23 16:10:03
+3. 'nilsbyen_2',   - Images: 57225, timeline: 2021-12-10 19:10:03 to 2023-01-23 16:10:02 
+4. 'nilsbyen_3',   - Images: 57226, timeline: 2021-12-10 19:10:03 to 2023-01-23 16:10:02
+5. 'skistua',      - Images: 57215, timeline: 2021-12-10 19:10:03 to 2023-01-23 16:10:03 
+5. 'ronningen_1'   Not processed
+
+The first 5 cameras images are processed through yolov5s inference on MAC1 gpu and the results of detections are stored in two different csv files for each camera.
+RAW CSV Files
+1. cameraName_all_timestamps_raw: Columns -> timestamp,filename,count,exp-conf(>0.5),error_image
+3. cameraName_only_detections: Columns -> timestamp,p1x,p1y,p2x,p2y,conf,class
+
+
+Cleaning of data:
+
+Category A
+Periods in the dataset due to faulty images after doing some visual inspections and by seeing the timeline of person detections:
+1. 'jervskogen_1', 2022-02-14 15:30 to 2022-02-21 19:10, 2022-08-07 to 2022-08-30
+2. 'jervskogen_2', 2022-02-14 15:30 to 2022-02-21 19:10
+3. 'nilsbyen_2',  
+4. 'nilsbyen_3',   
+5. 'skistua',      2022-02-14 15:30 to 2022-02-21 19:10
+5. 'ronningen_1'   Not processed
+
+Category B
+The periods where images were not processed by the yolov5s model due to errors in the images. The timestamps can be checked from the above raw csv files where column eroor_image = True. 
+1. 'jervskogen_1', 14 instances 
+2. 'jervskogen_2', 23 instances
+3. 'nilsbyen_2',   77 instances
+4. 'nilsbyen_3',   136 instances
+5. 'skistua',      11 instances
+5. 'ronningen_1'   Not processed
+
+Category C
+The periods which are not present in the dataset due to some reasons, like webpage not showing the image at sometimes. 
+1. 'jervskogen_1', 1678 instances, 2022-02-22 00:50 to 2022-02-22 18:00, and some others
+2. 'jervskogen_2', 1678 instances
+3. 'nilsbyen_2',   1667 instances
+4. 'nilsbyen_3',   1667 instances
+5. 'skistua',      1677 instances
+5. 'ronningen_1'   Not processed
+
+
+We have placed person count as zero in all of these categories.
+
+
+Total faulty instances in the dataset having zeros as person count.
+Cleaned csv files:
+1. 'jervskogen_1', 5996 instances out of 57215 i.e. 10%
+2. 'jervskogen_2', 2724 instances
+3. 'nilsbyen_2',   1744 instances
+4. 'nilsbyen_3',   1803 instances
+5. 'skistua',      2711 instances
+5. 'ronningen_1'   Not processed, i.e. 4.7%
+

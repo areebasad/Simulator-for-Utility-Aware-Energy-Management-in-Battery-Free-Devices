@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+
+import numpy
+
+Imax = 0.6;  # your max current (application)
+
+# In = 0.5;    # result from
+In = 0.3
+
+
+m = [ 0, 1, 1, 10, 20, 100, 90, 95, 50, 20, 5, 1 ]  # metric per slot
+M = len(m) # number of slots
+
+I = [0] * M
+
+
+numLeft = M
+sumLeft = numpy.sum(m)
+
+numLeftNext = numLeft
+sumLeftNext = sumLeft
+
+In *= M
+while In > 0 and sumLeft > 0:
+
+  Ir = 0
+  for i in range(M):
+    if I[i] < Imax:
+      I[i] += m[i] * (In / sumLeft)
+      if I[i] >= Imax:
+        #print(i, ": clipping ", I[i])
+        Ir += I[i] - Imax
+        I[i] = Imax
+        numLeftNext -= 1
+        sumLeftNext -= m[i]
+
+
+  # debug
+  #for i in range(M):
+  #  print(I[i])
+  #print("avg = ", numpy.mean(I))
+  #print("Ir  = ", Ir / M)
+  #input("...")
+
+  In = Ir
+  numLeft = numLeftNext
+  sumLeft = sumLeftNext
+
+  #print("======")
+
+
+for i in range(M):
+  print(I[i])
+
+
