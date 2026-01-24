@@ -61,6 +61,6 @@ After running an experiment, you will find the following files in the experiment
 
 
 ## Resources
-
-- **Published Paper:** [UtiliGEM: Energy Mangement Guided by Learned Application Utility](Published paper link here)  
+- For experiment details and results, have a look at the following paper.  
+- **Published Paper:** [UtiliGEM: Energy Mangement Guided by Learned Application Utility](Published paper link (https://dl.acm.org/doi/full/10.1145/3703790.3703796)  
   Published in the ACM Digital Library.
